@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LWOA</title>
+
+<style>
+
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:radial-gradient(circle at center,#0a0a0a,#000000);
+    color:#e5e5e5;
+    font-family:Arial, sans-serif;
+}
+
+.caja{
+    width:85%;
+    max-width:800px;
+    background:rgba(255,255,255,0.03);
+    padding:40px;
+    border-radius:18px;
+    box-shadow:0 0 30px rgba(255,255,255,0.04);
+    animation:fadeIn 2s ease;
+    border:1px solid rgba(255,255,255,0.08);
+}
+
+h1{
+    text-align:center;
+    margin-bottom:5px;
+    letter-spacing:3px;
+}
+
+.subtitulo{
+    text-align:center;
+    font-size:13px;
+    opacity:0.5;
+    margin-top:0;
+    margin-bottom:25px;
+    letter-spacing:3px;
+}
+
+.texto{
+    white-space:pre-wrap;
+    font-size:17px;
+    line-height:1.8;
+    min-height:320px;
+    color:#dcdcdc;
+}
+
+.cursor{
+    display:inline-block;
+    width:10px;
+    height:18px;
+    background:#fff;
+    animation:blink 0.8s infinite;
+    margin-left:3px;
+}
+
+button{
+    margin-top:20px;
+    padding:12px;
+    width:100%;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    background:#f5f5f5;
+    color:#000;
+    font-weight:bold;
+}
+
+.hidden{
+    display:none;
+    margin-top:25px;
+    animation:fadeIn 1.5s ease;
+    border-top:1px solid rgba(255,255,255,0.1);
+    padding-top:20px;
+}
+
+.firma{
+    text-align:right;
+    margin-top:20px;
+    font-size:13px;
+    opacity:0.4;
+    letter-spacing:2px;
+}
+
+@keyframes blink{
+    50%{opacity:0;}
+}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(10px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="caja">
+
+<h1>LWOA</h1>
+<p class="subtitulo">Lover Web For Arminda</p>
+
+<div class="texto" id="texto"></div><span class="cursor"></span>
+
+<button onclick="mostrar()">Abrir mensaje final</button>
+
+<div class="hidden" id="final">
+
+<p>
+Arminda… ¿quieres salir conmigo?
+</p>
+
+<div class="firma">
+Un abrazo,<br>
+El señor incógnito
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+const mensaje = `Querida Arminda,
+
+Aquí el señor incógnito, quien hizo este revuelo solo por ti.
+Por discreción y vergüenza prefiero mantener mi identidad oculta, ya que las palabras que quiero expresarte me cuesta pronunciarlas.
+
+Probablemente ya hayas averiguado quién soy, pero eso no cambia mi forma de mantener el misterio.
+
+En esta web, a la que nadie más que tú tiene acceso, te diré lo que siento por ti.
+
+Arminda, antigua princesa canaria:
+
+Debe ser que eres de otro mundo, porque este no podría soportar tanta belleza.
+Y ni hablar de tu inteligencia… con ella podrías resolver problemas mundiales.
+
+Pero eso no es lo único que te define. También eres misteriosa, por los dibujos que haces, y ni me imagino lo variada que será tu playlist.
+
+Sé que apenas te conozco, pero lo poco que he visto de tu personalidad me tiene enamorado.
+
+Las palabras no son lo mío, pero este intento merece un positivo.`
+
+let i = 0;
+const velocidad = 25;
+
+function escribir(){
+    if(i < mensaje.length){
+        document.getElementById("texto").innerHTML += mensaje.charAt(i);
+        i++;
+        setTimeout(escribir, velocidad);
+    }
+}
+
+function mostrar(){
+    document.getElementById("final").style.display = "block";
+}
+
+escribir();
+
+</script>
+
+</body>
+</html>
